@@ -14,3 +14,4 @@ $pdo->query($sql);
 
 // レジ画面に戻る（リダイレクト：ページ転送）
 header('Location: index.php');
+//111
