@@ -47,9 +47,8 @@
         const TAX_RATE = 0.1;
 
         function addToDisplay(value) {
-            if(value !== "")
-               memory += value;
-               updateDisplay();
+            memory += value;
+            updateDisplay();
         }
 
         function calculate(operator) {
