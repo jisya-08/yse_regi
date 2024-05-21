@@ -51,8 +51,11 @@
             updateDisplay();
         }
 
-        function calculate(value) {
-            memory += value;
+        function calculate(operator) {
+            if(!isNaN(memory[memory.length - 1])){
+                memory += operator;
+                updateDisplay();
+            }
         }
 
         function clearAll() {
@@ -65,14 +68,24 @@
         }
 
         function calculateTax() {
-            memory *= (1 + TAX_RATE);
-            memory = Math.round(memory);
-            updateDisplay();
+            if(memory !== "" && !isNaN(memory)) {
+               memory = (parseFloat(memory) * (1 + TAX_RATE)).toFixed(2);
+               updateDisplay();
+            }
         }
 
         function calculateTotal() {
-            memory = eval(memory);
-            updateDisplay();
+            try {
+                if(memory !== "" && !isNaN(memory[memory.length - 1])) {
+                    memory = eval(memory).toString();
+                    updateDisplay();
+                } else {
+                    alert("数字を入力してから押してください");
+                }
+            } catch (e) {
+                alert("数字を入力してから押してください");
+                clearAll();
+            }
         }
     </script>
 
